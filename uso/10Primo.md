@@ -12,11 +12,11 @@ while true
 
 do
 
-  x=$\[x+1\]
+x=$\[x+1\]
 
-  echo $x
+echo $x
 
-  sleep 1
+sleep 1
 
 done
 
@@ -28,8 +28,6 @@ Eseguirla in docker:
 
 ##### `docker run -d centos /bin/bash -c "$(cat ~ex/forever.sh)"`
 
-
-
 Tutti i sottocomandi docker sono prefissi col comando `docker`.
 
 Questo sottocomando, `run` , lancia un contenitore, in modalità _demone_ con l'opzione `-d` .
@@ -38,7 +36,7 @@ Il contenitore è generato dall'immagine `centos` .
 
 Dato che tale immagine sul nostro computer ancora non esiste, docker si collega al **Docker Hub** in rete e ne scarica tutti i componenti; può impiegare qualche minuto.
 
-Il contenitore riceve un identificativo` ID` casuale, derivato da uno hash dell'immagine. Viene visualizzato a video tale ID quando il contenitore parte.
+Il contenitore riceve un identificativo`ID` casuale, derivato da uno hash dell'immagine. Viene visualizzato a video tale ID quando il contenitore parte.
 
 Al contenitore sono passati i parametri `/bin/bash -c "$(cat ~ex/forever.sh)"` ovvero viene lanciata una shell a cui passiamo la nostra procedura.
 
@@ -68,6 +66,21 @@ Il contenitore è fermo, ma non distrutto. Farlo ripartire con:
 
 ##### `docker start ID`
 
-e verificare il log. Quando soddisfatti che gira, fermarlo di nuovo.  
+e verificare il log. Quando soddisfatti che gira, fermarlo di nuovo.
 
+**Passo 6.**
+
+Rimuovere il contenitore:
+
+##### `docker rm ID`
+
+Provare a farlo partire di nuovo. Verificare anche il log.
+
+
+
+Perchè il seguente non funziona?
+
+##### `docker run -d centos /bin/bash forever.sh`
+
+Perchè in questo semplice esempio il contenitore e il sistema operativo ospitante sono separati. Il contenitore non vede il file `forever.sh` , perchè questo si trova nel file system dell'ospitante.
 
