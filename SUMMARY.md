@@ -7,6 +7,7 @@
 * [Contenitori](arch/20Contenitori.md)
 * [Componenti di Docker](arch/30Componenti.md)
 * [Installazione](inst/README.md)
+* [Uso di Docker](uso/README.md)
 * [Networking](net/README.md)
 * [Docker Compose](compose/README.md)
 * [Sicurezza](sicur/README.md)
@@ -14,6 +15,5 @@
 * [Swarm](swarm/README.md)
 * [Microservizi](micros/README.md)
 * [Devops](devops/README.md)
-* [Conclusione](conclusione.md)
-* Componenti di Docker
+* Uso di Docker
 
