@@ -15,6 +15,7 @@
 * [Sicurezza](sicur/README.md)
 * [Strumenti](tools/README.md)
 * [Swarm](swarm/README.md)
-
-
+* [Microservizi](micros/README.md)
+* [Docker e DevOps](devops/README.md)
+* [Conclusione](conclusione.md)
 
