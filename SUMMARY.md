@@ -2,10 +2,10 @@
 
 * [Introduzione](README.md)
 * [Architettura](arch/README.md)
-* [Origini ed Evoluzione](arch/10Evoluzione.md)
-* [Il Linguaggio Go](arch/15Go.md)
-* [Contenitori](arch/20Contenitori.md)
-* [Componenti di Docker](arch/30Componenti.md)
+  * [Origini ed Evoluzione](arch/10Evoluzione.md)
+  * [Il Linguaggio Go](arch/15Go.md)
+  * [Contenitori](arch/20Contenitori.md)
+  * [Componenti di Docker](arch/30Componenti.md)
 * [Installazione](inst/README.md)
 * [Uso di Docker](uso/README.md)
 * [Networking](net/README.md)
@@ -15,5 +15,8 @@
 * [Swarm](swarm/README.md)
 * [Microservizi](micros/README.md)
 * [Devops](devops/README.md)
-* Uso di Docker
+
+
+
+
 
