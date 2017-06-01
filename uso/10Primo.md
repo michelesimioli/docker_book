@@ -4,21 +4,16 @@
 
 Preparare la procedura shell `~ex/forever.sh`:
 
+```bash
 \#! /bin/bash
-
 x=0
-
 while true
-
 do
-
-x=$\[x+1\]
-
-echo $x
-
-sleep 1
-
+  x=$\[x+1\]
+  echo $x
+  sleep 1
 done
+```
 
 Questa procedura conta all'infinito, un numero al secondo.
 
