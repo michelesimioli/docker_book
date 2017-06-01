@@ -5,11 +5,11 @@
 Preparare la procedura shell `~ex/forever.sh`:
 
 ```bash
-\#! /bin/bash
+#! /bin/bash
 x=0
 while true
 do
-  x=$\[x+1\]
+  x=$[x+1]
   echo $x
   sleep 1
 done
@@ -63,6 +63,8 @@ Il contenitore è fermo, ma non distrutto. Farlo ripartire con:
 
 e verificare il log. Quando soddisfatti che gira, fermarlo di nuovo.
 
+Notare che la procedura è ripartita dall'inizio. Fermare un contenitore non mantiene lo stato.
+
 **Passo 6.**
 
 Rimuovere il contenitore:
@@ -72,6 +74,8 @@ Rimuovere il contenitore:
 Provare a farlo partire di nuovo. Verificare anche il log.
 
 
+
+#### Domanda
 
 Perchè il seguente non funziona?
 
