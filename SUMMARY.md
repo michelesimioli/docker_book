@@ -1,4 +1,4 @@
-# Summary
+# Sommario
 
 * [Introduzione](README.md)
 * [Architettura](arch/README.md)

@@ -28,4 +28,3 @@ E' particolarmente importante in Docker l'aspetto di networking e la tendenza ad
 Docker infine sta avendo molto successo nel campo DevOps, favorendo l'orchestrazione dei servizi con Swarm ed il deployment continuo.
 
 
-
