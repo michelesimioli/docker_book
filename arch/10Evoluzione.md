@@ -18,7 +18,17 @@ E' scritto nel linguaggio di programmazione Go, che asua volta è un'altra gross
 
 Compie la virtualizzazione entro il sistema operativo ospitante, non entro sistemi operativi ospiti.
 
-Direzione futura: software indipendente dal sistema operativo
+Direzione futura: software indipendente dal sistema operativo.
+
+**Attenzioni:**
+
+* Docker non è una macchina virtuale \(kernel condiviso\)
+* Docker non è automaticamente scalabile
+* Al momento nessuno usa docker in produzione
+* I containers di Linux hanno ancora alcuni problemi di sicurezza
+* La calibrazione delle prestazioni è ancora un po' indietro
+
+
 
 
 
