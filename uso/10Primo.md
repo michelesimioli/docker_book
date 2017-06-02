@@ -73,8 +73,6 @@ Rimuovere il contenitore:
 
 Provare a farlo partire di nuovo. Verificare anche il log.
 
-
-
 #### Domanda
 
 Perchè il seguente non funziona?
@@ -82,4 +80,6 @@ Perchè il seguente non funziona?
 ##### `docker run -d centos /bin/bash forever.sh`
 
 Perchè in questo semplice esempio il contenitore e il sistema operativo ospitante sono separati. Il contenitore non vede il file `forever.sh` , perchè questo si trova nel file system dell'ospitante.
+
+
 
