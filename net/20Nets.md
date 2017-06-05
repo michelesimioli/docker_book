@@ -123,6 +123,8 @@ lo        Link encap:Local Loopback
 
 ### Due containers sulla rete di default
 
+![intnet](../gitbook/images/intnet.png)
+
 ##### `docker run -ti --name=one alpine sh`
 ```
 / # ifconfig

@@ -4,7 +4,7 @@
 
 Le macchine virtuali emulano lo hardware ed il sistema operativo che vi interagisce.
 
-![](/gitbook/images/avirt.png)
+![VM](/gitbook/images/avirt.png)
 
 Hanno **vantaggi**:
 

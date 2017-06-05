@@ -6,7 +6,7 @@ Tre componenti principali:
 * **Image**: risultato della compilazione del docker file
 * **Container**: istanza di realizzazione di una image
 
-![](/gitbook/images/compon.png)
+![Componenti](/gitbook/images/compon.png)
 
 
 

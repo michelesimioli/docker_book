@@ -4,7 +4,9 @@
 
 Crea una rete di nome `net1`.
 
-Si può visualizzarne le proprietà:
+![namednet](../gitbook/images/namednet.png)
+
+Una rete con nome è essa stessa un container: Si può visualizzarne le proprietà:
 ```
 docker network inspect net1 
 [
@@ -52,3 +54,11 @@ PING one (172.18.0.2): 56 data bytes
 round-trip min/avg/max = 0.155/0.158/0.162 ms
 / #
 ```
+C'è risoluzione nomi-indirizzi, servizio offerto da `net1`.
+
+Il nome di un container (hostname) è:
+* quello assegnato dall'opzione `--name`
+    * scelta più opportuna
+* quello di fantasia assegnato di default
+* lo ID del container
+
