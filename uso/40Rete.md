@@ -91,3 +91,13 @@ Ispezionare i parametri dell'immagine:
 ```
 Si vede che l'indirizzo IP assegnato è `172.17.0.3`.
 
+Test del server web:
+```
+curl 172.17.0.3:8080
+
+Hello World from Go in minimal Docker container
+```
+
+Funziona. Non è possibile però collegarsi da altri computer che no siano quello ospitante.
+
+
