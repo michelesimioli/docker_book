@@ -41,7 +41,7 @@ Non viene al momento visualizzato altro.
 
 Per verificare che il nostro contenitore è in funzione:
 
-##### `docker log ID`
+##### `docker logs ID`
 
 dove `ID` è lo hash identificativo del contenitore.
 
@@ -82,4 +82,11 @@ Perchè il seguente non funziona?
 Perchè in questo semplice esempio il contenitore e il sistema operativo ospitante sono separati. Il contenitore non vede il file `forever.sh` , perchè questo si trova nel file system dell'ospitante.
 
 
+### Mettere in Pausa
+
+Se fermare un contenitore e riavviarlo lo resetta all'inizio, mettere in pausa un contenitore poi toglierlo dalla pausa lo fa continuare dal punto in cui era arrivato.
+
+##### `docker pause ID`
+
+##### `docker unpause ID`
 

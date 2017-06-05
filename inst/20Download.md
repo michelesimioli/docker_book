@@ -82,8 +82,16 @@ Per aggiungere l'utente _pippo_ a tale gruppo:
 ```
 sudo usermod -G -a docker pippo
 ```
+Non scordarsi mai l'opzione `-a`.
 
-E' necessario un relogin per appartenere a tale gruppo.
+E' necessario un relogin di _pippo_ per appartenere a tale gruppo.
+
+---
+# Attenzione
+
+Far appartenere al gruppo `docker` un utente non amministratore è un **GROSSO** baco di sicurezza, poichè permetta a tale utente, con l'aiuto di Docker, una **scalata di privilegi**.
+
+---
 
 ### Verifica versione
 
