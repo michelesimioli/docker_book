@@ -78,9 +78,9 @@ E' di gran lunga preferibile l'installazione da Repository.
 
 Per poter comunicare col server docker, cioè poter dare quasi i comandi, è necessario che un utente appartenga al gruppo `docker`.
 
-Per aggiungere l'utente _pippo_ a tale gruppo:
+Per aggiungere l'utente _mich_ a tale gruppo:
 ```
-sudo usermod -G -a docker pippo
+sudo usermod -aG docker mich
 ```
 Non scordarsi mai l'opzione `-a`.
 

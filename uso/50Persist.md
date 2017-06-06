@@ -29,6 +29,9 @@ ed inserirvi:
 Lanciare un container che monta la directory:
 
 ##### `docker run -d -p -v ~/web1:/usr/share/nginx/html nginx`
+
+**Attenzione**: il percorso  lato contenitore deve essere assoluto.
+
 Verificare l'indirizzo IP del container:
 ```
 docker inspect ID
@@ -41,7 +44,7 @@ curl IP
 In questo esempio:
 ```
 curl 172.17.0.2
-
+```
 Si può condividere un singolo file:
 ```
 cd
@@ -58,4 +61,63 @@ E poi dal sistema host (i container è morto nel frattempo):
 cat example.txt
 ```
 e si nota che il file è cambiato.
+
+### Modifica di Immagini
+
+Lanciare un nginx con un nome assegnato:
+```
+docker run -d --name my_nginxtemp1 nginx
+
+docker ps
+
+docker inspect my_nginxtemp1 | grep IP
+```
+Aprire il browser all'indirizzo IP indicato.
+```
+curl 172.17.0.2
+```
+Connettersi al container con una shell:
+```
+docker exec -i -t my_nginxtemp1 bash
+```
+Abbiamo una shell di root. Verificare:
+```
+cd /usr/share/nginx/html
+ls
+```
+Sostituire index.html:
+```
+echo '<h1>CUSTOMIZED!</h1>' > index.html
+
+```
+Uscire dal container:
+```
+exit
+```
+Verificare:
+```
+curl 172.17.0.2
+```
+Creare una copia del container corrente come nuova immagine:
+##### `docker commit my_nginxtemp1 my_nginx1`
+
+Verificare:
+```
+docker images
+```
+Rimuovere il vecchio container e lanciarne uno nuovo con la nuova immagine:
+```
+docker rm -f my_nginxtemp1
+docker run -d --name nuova1 my_nginx1
+```
+
+Verificare l'indirizzo IP
+```
+docker inspect nuova1 | grep IP
+```
+Verificare:
+```
+curl 172.17.0.2
+```
+E si nota che i cambiamenti sono stati inglobati nella nuova immagine.
 
