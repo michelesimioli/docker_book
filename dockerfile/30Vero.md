@@ -70,4 +70,41 @@ curl 172.17.0.2
 
 Funziona, con la pagina di default.
 
+**Osservazione**
+
+Naturalmente anzichè compilarlo noi da sorgenti tramite Dockerfile, potevamo solamente fidarci dell'immagine già compilata presente su Docker Hub e digitare:
+```
+docker pull nginx
+```
+L'immagine risultante è più grande, 106 Mb, poichè questa versione contiene anche il supporto a Perl.
+
+### Serve di Pagine Statiche con Nginx
+
 Ora rimane il problema di passare pagine statiche al contenitore.
+
+Leggendo la documentazione del sito web di Nginx Docker si apprende che la directory per le pagine statiche è `/usr/share/nginx/html`
+
+Generiamo una nostra directory per le pagine statiche: `~/ex/static`
+
+Creiamoci dentro il file `index.html`:
+```html
+<html>
+        <head>
+                <title>Mia Pagina</title>
+        </head>
+        <body>
+                <h1>La mia pagina di indice</h1>
+        </body>
+</html>
+```
+
+Ora lanciamo il container, con opportuno _port publishing_ e _volume mapping_:
+```
+docker run --name web_server -p 8080:80 -v ~/ex/static:/usr/share/nginx/html:ro -d nginx
+```
+
+Se l'indirizzo IP della macchina host è `192.168.0.10`, puntiamo il nostro browser a `http://192.168.0.10:8080/` e dovremmo vedere la nostra pagina di indice.
+
+Qualsiasi cambiamento effettuato sulla directory locale `~/ex/static` è immediatamente riflesso dal web server.
+
+
