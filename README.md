@@ -27,4 +27,11 @@ E' particolarmente importante in Docker l'aspetto di networking e la tendenza ad
 
 Docker infine sta avendo molto successo nel campo DevOps, favorendo l'orchestrazione dei servizi con Swarm ed il deployment continuo.
 
+### Requisiti per gli Esercizi
 
+* Ubuntu 16.04 LTS con upgrade alle ultime patch
+    * **NON** deve essere una macchina virtuale
+* Minimo 4 GB RAM e 200 GB HD
+* VirtualBox ultima versione, con estensioni, per gli esercizi sullo Swarm
+    * Generazione di tre VM (master1, client1, client2) con Ubuntu Server 16.04 LTS, di 1 MB RAM e 40 MB HD
+    * Impostazione di rete VM a Bridge
