@@ -21,7 +21,7 @@ D'altronde hanno anche alcuni **svantaggi**:
 
 I contenitori sono una virtualizzazione dell'ambiente operativo software necessario alle applicazioni, non dell'hardware.
 
-![](/gitbook/images/acont.png)
+![Contenitori](/gitbook/images/acont.png)
 
 I **vantaggi** sono:
 

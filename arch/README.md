@@ -1,8 +1,8 @@
 # Architettura
 
 Docker è basato su un'architettura Client-Server:
-* docker - client, invia comandi e richieste al server
-* dockerd - server, gestisce i contenitori e le immagini
+* `docker` - client, invia comandi e richieste al server
+* `dockerd` - server, gestisce i contenitori e le immagini
 
 Solitamente client e server si trovano sulla stessa macchina HW:
 * il server è responsabile dei propri contenitori locali e il client è il _suo_ client - il collegamento dell'utente al client avviene tramite `ssh`
@@ -13,3 +13,8 @@ Il collegamento tra client e server su un'unica macchina avviene tramite un _soc
 
 ![socket](../gitbook/images/cliser.png)
 
+E' possibile anche configurare Docker per usare dei _socket Inet_, in modo da avere il client e il server su macchine diverse, ma si introducono problemi di sicurezza.
+
+La soluzione raccomandata è:
+* client e server sulla stessa macchina
+* accesso alla macchina tramite `ssh`

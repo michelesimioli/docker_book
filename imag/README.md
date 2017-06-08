@@ -1,4 +1,0 @@
-# Immagini e Contenitori
-
-
-

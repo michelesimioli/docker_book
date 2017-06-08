@@ -22,7 +22,7 @@ In Linux vi sono i namespaces:
 * `mnt` - dei punti di montaggio dei file system
 * `uts` - degli identificativi del kernel e della versione (UTS: Unix Timesharing System)
 
-Ogni container riceve una propriacopia dei namespaces.
+Ogni container riceve una propria copia dei namespaces.
 
 ### Control Groups
 

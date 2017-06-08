@@ -12,9 +12,9 @@ Richiede un'architettura Linux a 64 bit con Kernel 2.6+. E' basato sulla feature
 
 La versione corrente è la 1.12 \(6/16\), ma è in continua evoluzione
 
-la liicenza è Apache \(open\).
+La licenza è Apache \(open\).
 
-E' scritto nel linguaggio di programmazione Go, che asua volta è un'altra grossa innovazione tecnologica.
+E' scritto nel linguaggio di programmazione Go, che a sua volta è un'altra grossa innovazione tecnologica.
 
 Compie la virtualizzazione entro il sistema operativo ospitante, non entro sistemi operativi ospiti.
 
