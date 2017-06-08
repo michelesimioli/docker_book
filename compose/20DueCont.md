@@ -1,0 +1,25 @@
+## Compose con Due Containers
+
+```
+mkdir -p ~/ex/compose/wp1
+cd ~/ex/compose/wp1
+vi docker-compose.yml
+```
+```yml
+version: '2'
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_PASSWORD: example
+
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+```
