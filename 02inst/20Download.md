@@ -84,7 +84,9 @@ sudo usermod -aG docker mich
 ```
 Non scordarsi mai l'opzione `-a`.
 
-E' necessario un relogin di _pippo_ per appartenere a tale gruppo.
+E' necessario un relogin di _mich_ per appartenere a tale gruppo.
+
+**NB**: compiere subito il relogin o i comandi successivi non funzionano!
 
 ---
 # Attenzione

@@ -1,6 +1,2 @@
 # Uso di Docker
 
-
-
-
-

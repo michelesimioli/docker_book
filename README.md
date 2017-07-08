@@ -1,12 +1,12 @@
-# ---&gt; Status: Draft &lt;---
+# -> Status: Draft <-
 
-![](/gitbook/images/dock.png)
+![Docker](/gitbook/images/dock.png)
 
 # Introduzione
 
 Dal momento della sua creazione il prodotto Docker ha avuto un aumento di adozione ad un ritmo impressionante. Si stima che in media mondiale sia installato ora sul 15% dei computer.
 
-![](/gitbook/images/adoption.png)
+![Adozione](/gitbook/images/adoption.png)
 
 I maggiori adottatori di Docker sono le grandi ditte, la stessa tipologia che è da qualche anno coinvolta nella virtualizzazione.
 
@@ -32,6 +32,4 @@ Docker infine sta avendo molto successo nel campo DevOps, favorendo l'orchestraz
 * Ubuntu 16.04 LTS con upgrade alle ultime patch
     * **NON** deve essere una macchina virtuale
 * Minimo 4 GB RAM e 200 GB HD
-* VirtualBox ultima versione, con estensioni, per gli esercizi sullo Swarm
-    * Generazione di tre VM (master1, client1, client2) con Ubuntu Server 16.04 LTS, di 1 MB RAM e 40 MB HD
-    * Impostazione di rete VM a Bridge
+* VirtualBox ultima versione, con estensioni

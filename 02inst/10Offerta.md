@@ -1,11 +1,11 @@
 ## L'Offerta Docker
 
-Docker è un progetto Open Source, ma è promosso e gestito dalla ditta **Docker Inc**, e ospitato sul sito www.docker.com.
+Docker è un progetto Open Source, ma è promosso e gestito dalla ditta **Docker Inc**, e ospitato sul sito `www.docker.com`.
 
 Docker è disponibile in due versioni:
-* Docker Community Edition (CE) - libero e open source
+* **Docker Community Edition** (CE) - libero e open source
     * Docker Engine con networking, orchestrazione e sicurezza di base
-* Docker Enterprise Edition (EE) - soggetto a licenza, ulteriormente diviso in
+* **Docker Enterprise Edition** (EE) - soggetto a licenza, ulteriormente diviso in
     * Basic - Certified infrastructure, plugins e ISV containers
     * Standard - Image management e Container app management
     * Advanced - Image security scanning
