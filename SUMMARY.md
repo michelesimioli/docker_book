@@ -1,4 +1,4 @@
-# Summary
+# Sommario
 
 * [Introduzione](README.md)
 * [Architettura](01arch/README.md)
@@ -6,7 +6,6 @@
   * [Il Linguaggio Go](01arch/15Go.md)
   * [Contenitori](01arch/20Contenitori.md)
   * [Componenti di Docker](01arch/30Componenti.md)
-  * [Personalizzazioni](01arch/50Person.md)
 * [Installazione](02inst/README.md)
   * [L'Offerta Docker](02inst/10Offerta.md)
   * [Download](02inst/20Download.md)
@@ -15,6 +14,7 @@
   * [Primo Esempio](03uso/10Primo.md)
   * [Gestione Immagini](03uso/20Immagini.md)
   * [Gestione Contenitori](03uso/30Contenitori.md)
+  * [Personalizzazioni](03uso/35Person.md)
   * [Semplice Networking](03uso/40Rete.md)
   * [Dati Persistenti](03uso/50Persist.md)
   * [Esercizi](03uso/55VimGo.md)
@@ -29,20 +29,30 @@
   * [Volumi Condivisi](05dockerfile/40Volumi.md)
   * [Immagini e Go](05dockerfile/50Go.md)
   * [Docker e X Window](05dockerfile/60Xwindow.md)
-  * [Firefox in Alpine](05dockerfile/70Firefox-Alpine.md)
+  * [irefox in Alpine](05dockerfile/70Firefox-Alpine.md)
 * [Docker Compose](06compose/README.md)
   * [Primo Compose](06compose/10Primo.md)
   * [Due Contenitori](06compose/20DueCont.md)
-  * [Crane](06compose/70Alternativa.md)
 * [Sicurezza](07sicur/README.md)
+  * [Sicurezza in Profondità](07sicur/10difprof.md)
+  * [Updates](07sicur/20update.md)
+  * [Sicurezza delle Immagini](07sicur/30immagini.md)
+  * [Consigli](07sicur/40tips.md)
 * [Strumenti](08tools/README.md)
   * [Registry Privati](08tools/10Registry.md)
-* [Toolbox](09toolbox/README.md)
-  * [Docker Machine](09toolbox/10Creare.md)
-  * [Uso di Docker Machine](09toolbox/20Connessione)
+  * [Toolbox](08tools/20Toolbox.md)
+* [Docker Machine](09dmachine/README.md)
+  * [Creazione di Docker Machine](09dmachine/10Creare.md)
+  * [Uso di Docker Machine](09dmachine/20Connessione.md)
 * [Swarm](10swarm/README.md)
+  * [Creazione di Swarm](10swarm/10crea.md)
+  * [Creazione di Servizio](10swarm/20serv.md)
 * [Microservizi](11micros/README.md)
 * [Docker e DevOps](12devops/README.md)
+  * [Primo Principio](12devops/10dk-uno.md)
+  * [Secondo Principio](12devops/20dk-due.md)
+  * [Terzo Principio](12devops/30dk-tre.md)
+  
 
 
 
