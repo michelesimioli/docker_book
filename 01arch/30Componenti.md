@@ -1,4 +1,4 @@
-## Componenti di Docker
+# Componenti di Docker
 
 Tre componenti principali:
 
@@ -11,11 +11,11 @@ Tre componenti principali:
 
 Docker è basato su alcune caratteristiche specifiche del kernel Linux di versione superiore alla 3.10. Tali caratteristiche non vi sono in Windows o Mac, però qualcosa di simile esiste in BSD Unix e Solaris.
 
-### Namespaces
+## Namespaces
 
-Uno namespace (spazio nomi), concetto originale del C++, è un ambiente chiuso e separato in cui i simboli gestiti sono visibili. Namespaces diversi possono fare uso degli stessi simboli, e non interferiscono tra loro.
+Uno **namespace** (spazio nomi), concetto originale del C++, è un ambiente chiuso e separato in cui i simboli gestiti sono visibili. Namespaces diversi possono fare uso degli stessi simboli, che non interferiscono tra loro.
 
-In Linux vi sono i namespaces:
+Nel kernel Linux sono definiti i _namespaces_:
 * `pid` - degli identificativi dei processi (Process ID)
 * `net` - delle interfacce di rete
 * `ipc` - dei meccanismi di Inter Process Communication (segnali, messaggi, ecc.)
@@ -24,12 +24,12 @@ In Linux vi sono i namespaces:
 
 Ogni container riceve una propria copia dei namespaces.
 
-### Control Groups
+## Control Groups
 
-Un gruppo di controllo (cgroup) è un insieme coordinato di processi con relativa autonomia. E' possibile assegnare risorse e limiti di utilizzo a ciascun cgroup.
+Un gruppo di controllo (**cgroup**) è un insieme coordinato di processi con relativa autonomia. E' possibile assegnare risorse e limiti di utilizzo a ciascun _cgroup_.
 
-### Union File System
+## Union File System
 
-Uno UnionFS è un file system a strati (_layers_). Ogni strato viene gestito indipendentemente, quindi viene fornita ai processi una visione unificata di tutti gli strati.
+Lo **UnionFS** è un file system a strati (_layers_). Ogni strato viene gestito indipendentemente, quindi viene fornita ai processi una visione unificata di tutti gli strati.
 
-Il motore Docker Engine può basarsi su una serie di gestori UnionFS disponibili in Linux, tra cui: AUFS, btrfs, vfs, e DeviceMapper.
+Il motore **Docker Engine** (il server di docker) può basarsi su una serie di gestori UnionFS disponibili in Linux, tra cui: _AUFS_, _btrfs_, _vfs_, e _DeviceMapper_.

@@ -1,8 +1,8 @@
-## Download e Setup
+# Download e Setup
 
-### Installazione
+## Installazione su Ubuntu
 
-#### Installazione da Repository
+### Installazione da Repository
 
 Installazione di Docker su Ubuntu 16.04 LTS. Esistono altre procedure per altre varianti di Ubuntu e altre distribuzioni Linux.
 
@@ -38,6 +38,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 ```
+
 Il comando `lsb_release -cs` ritorna il nome in codice corto della distribuzione corrente, nel nostro caso `xenial`.
 
 Aggiornare la lista dei repositories:
@@ -50,6 +51,8 @@ Controllare la disponibilità di `docker-ce`:
 apt-cache madison docker-ce
 ```
 
+Se non si installa una versione specifica di docker, viene installata l'ultima disponibile, che può non essere completamente stabile, quindi non una buona idea per i sistemi di produzione.
+
 Si può installare una versione specifica col comando:
 ```
 sudo apt-get install docker-ce=<VERSION>
@@ -60,7 +63,7 @@ Noi installeremo la versione più recente:
 sudo apt-get install docker-ce
 ```
 
-#### Installazione da Package Debian
+### Installazione da Package Debian
 
 Accedere al sito: `https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/`.
 
@@ -89,6 +92,7 @@ E' necessario un relogin di _mich_ per appartenere a tale gruppo.
 **NB**: compiere subito il relogin o i comandi successivi non funzionano!
 
 ---
+
 # Attenzione
 
 Far appartenere al gruppo `docker` un utente non amministratore è un **GROSSO** baco di sicurezza, poichè permetta a tale utente, con l'aiuto di Docker, una **scalata di privilegi**.
@@ -120,7 +124,7 @@ Server:
  
  da un rapporto sulla versione sia del client che del server, e implica che il server è attivo.
 
- #### Ulteriore Test
+ ### Ulteriore Test
 
  Viene fornito un container di default per il testing. Dare il comando:
 ```
@@ -154,16 +158,18 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/engine/userguide/
 ```
+
 Occorre ora fare pulizia:
 ```
 docker ps -a
 ```
+
 Identificare lo ID del container - il grosso numero esadecimale `CONTAINER_ID` all'inizio del rapporto. Rimuovere il container:
 ```
 docker rm CONTAINER_ID
 ```
 
- ### Gestione del Server
+## Gestione del Server
 
 Dipende dalla variante di Linux usata.
 
@@ -172,7 +178,7 @@ Su sistemi basati su init/upstart (RedHat/Centos 6, Ubuntu 14.04 LTS):
 sudo service docker status|start|stop|restart
 ```
 
-Su sistemi basati su systemctl (RedHat/CentOS 7, Ubuntu 16.06 LTS:
+Su sistemi basati su systemctl (RedHat/CentOS 7, Ubuntu 16.04 LTS:
 ```
 sudo systemctl status|start|stop|restart docker
 ```
@@ -199,10 +205,14 @@ Prima dell'upgrade assicurarsi che tutti i contenitori siano disattivati.
 
 ### Rimozione di Docker
 
+Se Docker è già installato, prima di installare la versione nuova occorre rimuovere quella vecchia.
+
 Rimozione del pacchetto:
 ```
 sudo apt-get purge docker-ce
 ```
+
+Tale comando non rimuove le immagini e contenitori già esistenti. Dallaversione _Docker 1.10_ la gestione delle immagini su disco è completamente cambiata. Se la versione corrente è inferiore alla 1.10, per compiere l'upgrade è necessario rimuovere tutte le immagini e i contenitori precedenti e reinstallarle.
 
 Rimozione delle immagini e contenitori:
 ```

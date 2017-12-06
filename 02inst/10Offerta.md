@@ -1,4 +1,4 @@
-## L'Offerta Docker
+# L'Offerta Docker
 
 Docker è un progetto Open Source, ma è promosso e gestito dalla ditta **Docker Inc**, e ospitato sul sito `www.docker.com`.
 
@@ -32,7 +32,8 @@ I seguenti sistemi ammettono solo Docker EE:
 * SuSE Linux Enterprise Server
 * Microsoft Windows Server 2016
 
-#### Releases
+
+## Releases
 
 L'etichetta di release è strutturata come anno.mese, p.es. 17.03.
 
@@ -40,8 +41,9 @@ A partire da marzo 2017 Docker viene aggiornato e rilasciato con i seguenti ritm
 * trimestrali - Docker CE 'Stable' e Docker EE
 * mensili - Docker CE 'Edge'
 
-La release corrente (giugno 2017) è la 17.03.1.
+La release stabile corrente (novembre 2017) è la 17.09.0.
 
 Le release precedenti la 17.03 sono considerate legacy, anche se disponibili in vari archivi.
 
-Lo sviluppo di nuove versioni pare avvenga sulla piattaforma di riferimento Ubuntu. Questa distribuzione è anche considerata lo standard per la generazione di immagini, per quanto vi sia in atto una discussione per il passaggio ad Alpine Linux.
+Lo sviluppo di nuove versioni avviene sulla piattaforma di riferimento Ubuntu. Questa distribuzione è anche considerata lo standard per la generazione di immagini, per quanto vi sia in atto una discussione per il passaggio ad Alpine Linux.
+

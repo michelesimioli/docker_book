@@ -29,7 +29,7 @@
   * [Volumi Condivisi](05dockerfile/40Volumi.md)
   * [Immagini e Go](05dockerfile/50Go.md)
   * [Docker e X Window](05dockerfile/60Xwindow.md)
-  * [irefox in Alpine](05dockerfile/70Firefox-Alpine.md)
+  * [Firefox in Alpine](05dockerfile/70Firefox-Alpine.md)
 * [Docker Compose](06compose/README.md)
   * [Primo Compose](06compose/10Primo.md)
   * [Due Contenitori](06compose/20DueCont.md)

@@ -1,6 +1,6 @@
-## Macchine Virtuali e Contenitori
+# Macchine Virtuali e Contenitori
 
-### Macchine Virtuali
+## Macchine Virtuali
 
 Le macchine virtuali emulano lo hardware ed il sistema operativo che vi interagisce.
 
@@ -17,9 +17,9 @@ D'altronde hanno anche alcuni **svantaggi**:
 * richiedono risorse considerevoli
 * l'installazione, configurazione e manutenzione richiede tempo
 
-### Contenitori
+## Contenitori
 
-I contenitori sono una virtualizzazione dell'ambiente operativo software necessario alle applicazioni, non dell'hardware.
+I contenitori sono una virtualizzazione dell'_ambiente operativo software_ necessario alle applicazioni, non dell'_hardware_. Le macchine virtuali, al contrario, sono una virtualizzazione dell'hardware.
 
 ![Contenitori](/gitbook/images/acont.png)
 
@@ -33,6 +33,4 @@ Gli **svantaggi**:
 
 * tecnologia non completamente stabile
 * tempo di preparazione delle immagini
-
-
 

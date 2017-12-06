@@ -25,7 +25,7 @@ Docker ha avuto notevoli migliorie nel campo della sicurezza, e i timori inizial
 
 E' particolarmente importante in Docker l'aspetto di networking e la tendenza ad andare da grossi applicativi monolitici ad applicativi composti di piccoli microservizi cooperanti.
 
-Docker infine sta avendo molto successo nel campo DevOps, favorendo l'orchestrazione dei servizi con Swarm ed il deployment continuo.
+Docker infine sta avendo molto successo nel campo **DevOps**, favorendo l'orchestrazione dei servizi con **Swarm** ed il deployment continuo.
 
 ### Requisiti per gli Esercizi
 

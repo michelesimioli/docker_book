@@ -72,3 +72,15 @@ Comandi:
     * tutti gli argomenti forniti nel comando build devono essere previsti nel Dockerfile
     * se un argomento non è fornito nel comando di build, `ARG` deve dargli un valore di default
 * `STOPSIGNAL segnale` - determina il segnale che viene inviato al container dal comando `docker stop ID` - default `SIGTERM`
+
+### Perchè tutti gli `&&`
+
+Si può avere:
+* una serie di comandi `RUN` ciascuno dei quali compie un'operazione
+* un unico comando `RUN` che compie più operazioni concatenate da `&&`
+Il secondo metodo è migliore per i seguenti motivi:
+
+Ogni RUN produce un'immagine intermedia, appesantendo il processo di generazione
+
+L'operatore `&&` non esegue il comando che segue se quello precedente è fallito e termina subito il processamento del `Dockerfile`.
+Ogni singolo RUN di successo procede al prossimo RUN e se uno degli ultimi fallisce, occorre più tempo per interrompere il processamento del `Dockerfile`

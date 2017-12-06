@@ -1,6 +1,6 @@
 # Configurazione di Docker
 
-### Aiuto di Docker
+## Aiuto di Docker
 
 Per avere un aiuto generico il comando è `docker help`, o più semplicemente `docker`.
 
@@ -18,6 +18,7 @@ docker help comando
 docker help sottosistema
 docker sottosistema help comando
 ```
+
 Alcuni comandi sono molto più usati di altri. Così come l'apprendimento di una lingua non si fà imparando a memoria il dizionario, l'apprendimento di Docker è guidato da specifici argomenti e casi. Comunque una visione dall'alto è molto utile.
 
 I comandi sono listati in ordine alfabetico, e non è veramente il modo giusto per raggrupparli. Meglio:
