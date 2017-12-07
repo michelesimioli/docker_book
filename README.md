@@ -1,4 +1,4 @@
-# -> Status: Draft <-
+# -> Status: Versione 1.0 <-
 
 ![Docker](/gitbook/images/dock.png)
 
