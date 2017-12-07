@@ -1,6 +1,6 @@
-## Gestione Contenitori
+# Gestione Contenitori
 
-### Lancio di un contenitore
+## Lancio di un contenitore
 
 ##### `docker run -it ubuntu:latest /bin/bash`
 Lancia un contenitore nuovo basato sull'immagine `ubuntu:latest` e al suo interno esegue il comando `/bin/bash`.
@@ -21,9 +21,11 @@ ps lax
 ```
 Notare che non è un intero sistema operativo, solo una shell in ambiente Ubuntu.
 
+### Uscire dalla Shell Interattiva
+
 Non uscire col comando `exit`, o si ferma il contenitore. Dare invece la sequenza di controllo `Ctrl-P Ctrl-Q`. Torniamo alla shell del sistema ospitante ma il contenitore è ancora attivo.
 
-### Lista dei contenitori
+## Lista dei contenitori
 
 Il comando:
 ##### `docker ps`
@@ -34,14 +36,14 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 lista i containers attivi.
 
-Il container ha ricevuto un nome d'ufficio, in questo caso _sleepy\_kirk_ (sono tutti nomi di fantasia del formato _attributo\_nome).
+Il container ha ricevuto un nome d'ufficio, in questo caso _sleepy\_kirk_ (sono tutti nomi di fantasia del formato _attributo\_nome_).
 Si può controllare il container sia col suo ID che col suo nome.
 
 Il comando:
 ##### `docker ps -a`
 lista tutti i contenitori, anche quelli non attivi. Nel nostro caso le due liste coincidono.
 
-Per riaprire una connessione di terminale al container:
+Per aprire una nuova connessione di terminale al container:
 ##### `docker exec -it sleepy_kirch bash`
 e ci troviamo di nuovo dentro la shell.
 
@@ -51,9 +53,13 @@ Provare a creare un file con un po' di contenuti:
 `echo Buongiorno > file1`
 
 Dare il comando `exit`.
-Verificare con `docher ps` che il containerè ancora attivo, perchè la shell originale c'è ancora.
+Verificare con `docker ps` che il containerè ancora attivo, perchè la shell originale c'è ancora.
 
-### Controllo di container
+Per ricongiungersi alla shell ancora attiva:
+#### `docker attach sleepy_kirch`
+
+
+## Controllo di container
 
 Il comando:
 ##### `docker stop sleepy_kirch`
@@ -69,10 +75,10 @@ Ci si può riconnettere con `docker exec -it sleepy_kirch bash`.
 Verificare che `file1` esiste ancora:
 `cat file1`.
 
-I contenitori conservano il file system anche quando sono in modo stop.
+I contenitori conservano il file system anche quando sono in modo _stop_.
 Notare col comando `history` che è stata mantenuta anche la storia dei comandi.
 
-### Rimozione di un contenitore
+## Rimozione di un contenitore
 
 Uscire dalla shell del container con `exit`.
 
@@ -95,7 +101,7 @@ Inoltre in seguito vedremo che un contenitore di un applicativo complesso è in 
 
 Sempre dare `docker stop ID` prima di `docker rm ID`.
 
-### Contenitore detached
+## Contenitore detached
 
 Lanciare:
 ##### `docker run -d -ti --name cont alpine`
@@ -107,7 +113,7 @@ Le ozioni sono:
 Verificare con `docker ps` che il contenitore è attivo.
 
 Attaccare un processo al contenitore:
-##### `docher attach cont`
+##### `docker attach cont`
 
 Ci si aggancia al processo di PID 1 del contenitore. Quale sia questo processo di pende da come è stata costruita l'immagine, per alpine è la shell `sh`.
 

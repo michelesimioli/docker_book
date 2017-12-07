@@ -1,10 +1,8 @@
-## Semplice Networking
+# Semplice Networking
 
-La rete di Docker fa uso di un bridge di nome `docker0`:
-
+La rete di Docker fa uso di una connessione **bridge** di nome `docker0`:
+#### `ifconfig docker0`
 ```
-ifconfig docker0
-
 docker0   Link encap:Ethernet  HWaddr 02:42:ea:41:9a:7d  
           inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
           inet6 addr: fe80::42:eaff:fe41:9a7d/64 Scope:Link
@@ -18,25 +16,23 @@ Il bridge è la connessione ad una rete interna di default che ospita tutti i co
 
 Al bridge è stata assegnato un indirizzo di default: `172.17.0.1/16`. Questo è l'indirizzo della macchina ospite sulla rete interna.
 
-Volendo si possono installare le utilities per i bridge:
+Volendo si possono installare in Ubuntu le utilities per i bridge:
+
 ```
 sudo apt install bridge-utils
 ```
-
 Ora si può verificare col comando:
+#### `brctl show`
 ```
-brctl show
-
 bridge name	bridge id		STP enabled	interfaces
 docker0		8000.0242ea419a7d	no		veth2f8ae0e
 ```
 
 Col comando `brctl` si possono cambiare molti parametri dei bridge. Vedere la manualistica ed il comando `brctl help`.
 
-Possiamo consultare l'interfaccia:
+Possiamo consultare l'interfaccia specifica di un contenitore:
+#### `ifconfig veth2f8ae0e`
 ```
-ifconfig veth2f8ae0e
-
 veth2f8ae0e Link encap:Ethernet  HWaddr f6:77:16:5e:6f:61  
           inet6 addr: fe80::f477:16ff:fe5e:6f61/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
@@ -48,14 +44,14 @@ veth2f8ae0e Link encap:Ethernet  HWaddr f6:77:16:5e:6f:61
 
 In generale il nome dell'interfaccia è `vethxxxxxxx`, diverso in istanze diverse.
 
-Se fermiamo il server con `sudo service docker stop` viene rimossa l'interfaccia `vethxxx` ma non il brige `docker0`.
+Se fermiamo il server con  `sudo service docker stop`  viene rimossa l'interfaccia  `vethxxx`  ma non il brige  `docker0`.
 
-Fermare il server impiega un po' di tempo, poichè viene mandato un SIGTERM a tutti i contenitori attivi.
+Fermare il server impiega un po' di tempo, poichè viene mandato un segnale `SIGTERM` a tutti i contenitori attivi.
 
 Se facciamo ripartire il server con `sudo service docker start` non viene ricreata subito l'interfaccia `vethxxx`, ma solo all'attivazione del primo contenitore, ed ha un nome diverso da prima.
 
 
-### Immagine con applicativo di rete
+## Immagine con applicativo di rete
 
 Un'immagine di test che offre un server web, attivo sulla porta 8080.
 
@@ -92,12 +88,8 @@ Ispezionare i parametri dell'immagine:
 Si vede che l'indirizzo IP assegnato è `172.17.0.3`.
 
 Test del server web:
+#### `curl 172.17.0.3:8080`
 ```
-curl 172.17.0.3:8080
-
 Hello World from Go in minimal Docker container
 ```
-
 Funziona. Non è possibile però collegarsi da altri computer che no siano quello ospitante.
-
-

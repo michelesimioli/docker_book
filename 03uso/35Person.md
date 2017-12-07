@@ -1,4 +1,4 @@
-## Personalizzazioni
+# Personalizzazioni
 
 Formato del rapporto:
 ```

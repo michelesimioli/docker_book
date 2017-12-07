@@ -3,21 +3,21 @@
 ## Registry
 
 Un Registry è una URL, tipicamente con protocollo `https`, alla quale docker si collega per scaricare immagini, con APi definite.
-Il registry di default è: `https://registry,hub,docker.com/`, o `https//hub.docker.com/`, detto Docker Hub.
+Il registry di default è: `https://registry.hub.docker.com/`, o `https//hub.docker.com/`, detto Docker Hub.
 
 Vi sono in rete altri registries, p.es.:
-* Quay (https://quay.io/)
-* Google Container Registry (https://cloud.google.com/container-registry/)
-* AWS Container Registry (https://aws.amazon.com/ecr/)
+* Quay (`https://quay.io/`)
+* Google Container Registry (`https://cloud.google.com/container-registry/`)
+* AWS Container Registry (`https://aws.amazon.com/ecr/`)
 
 E' possibile collegarsi liberamente (al momento) a Docker Hub, navigare per avere informazioni sulle immagini disponibili, e scaricare le immagini.
 
 Il collegamento ad altri registries può prevedere una sottoscrizione a pagamento, e permette l'upload di immagini prodotte localmente.
 
 E' anche possibile configurare e gestire un proprio registry:
-* compilando i sorgenti - in linguaggio Go - disponibili su https://github.com/docker/distribution
+* compilando i sorgenti - in linguaggio Go - disponibili su `https://github.com/docker/distribution`
     * usare solo la versione 2 con docker 1.6+
-* scaricando un'immagine docker (`docker pull registry`) e leggendo il manuale (https://docs.docker.com/registry/) per una corretta gestione
+* scaricando un'immagine docker (`docker pull registry`) e leggendo il manuale (`https://docs.docker.com/registry/`) per una corretta gestione
 
 ## Repository
 
@@ -33,7 +33,7 @@ hello-world         latest              48b5124b2768        4 months ago        
 ```
 
 Versione ridotta:
-##### docker images -q
+##### `docker images -q`
 Lista solo gli ID delle immagini.
 
 ### Ricerca immagini
@@ -56,10 +56,10 @@ Status: Downloaded newer image for alpine:latest
 ```
 
 Pull da un altro registry, non Docker Hub:
-```
-docker pull registry-URL/immagine[:tag]
-docker pull registry-ip:porta/immagine[:tag]
-```
+
+#### `docker pull` _registry-URL_/_immagine_[:_tag_]
+#### `docker pull` _registry-ip_:_porta_/_immagine_[:_tag_]
+
 
 Non necessariamente un'immagine è un nome semplice. Può essere un nome composto come `gruppo/immagine`, per esempio:
 ```
@@ -132,7 +132,7 @@ edge
 
 ### Layers
 
-Un'immagine può essere costituita da più **strati** (_layers_). Finora alpine era costituita da uno strato solo, ma per esempio Ubuntu è costituita da più strati.
+Un'immagine può essere costituita da più **strati** (_layers_). Finora _alpine_ era costituita da uno strato solo, ma per esempio _ubuntu_ è costituita da più strati.
 
 ##### `docker pull ubuntu`
 ```
@@ -148,9 +148,9 @@ Status: Downloaded newer image for ubuntu:latest
 ```
 
 Se ora listiamo le immagini presenti con `docker images` non vediamo i singoli strati di ubuntu, ma l'immagine totale.
-Docker usa uno Union File System per combinare gli strati in una singola immagine. Gli Union File Systems consentono a files e directories di file systems separati, noti come _branches_, di essere sovrapposti un un unico e coerente file system.
+Docker usa uno **Union File System** per combinare gli strati in una singola immagine. Gli Union File Systems consentono a files e directories di file systems separati, noti come _branches_, di essere sovrapposti un un unico e coerente file system.
 
-Per avere un'idea degli strati di un'immagine, in formato JSON, e di tutte le altre sue caratteristiche:
+Per avere un'idea degli strati di un'immagine, in formato **JSON**, e di tutte le altre sue caratteristiche:
 ##### `docker inspect ubuntu`
 ```
 [
@@ -178,20 +178,20 @@ I layers possono essere condivisi in più immagini. Se si scarica un'altra immag
 ## Pull di tutte le immagini di un Repository
 
 Il comando è:
-##### `docker pull -a immagine`
+##### `docker pull -a` _immagine_
 
 **Attenzione**
 
+Non effettuarlo veramente.
 Può richiedere molto tempo, anche con layer condivisi, ed occupare molto spazio disco.
 
 ## Digest
 
-Il chechsum SHA256 di un'immagine si chiama il suo Digest. Per aumentare la sicurezza si può includere nel comando di pull:
-```
-docker pull immagine:tag@digest
-```
+Il chechsum SHA256 di un'immagine si chiama il suo **Digest**. Per aumentare la sicurezza si può includere nel comando di pull:
 
-Per vedere il digest di un'immagine scaricata:
+#### `docker pull` _immagine_:_tag_@_digest_
+
+Per vedere i digest di un'immagine scaricata:
 ##### docker images --digests alpine
 
 
@@ -208,10 +208,8 @@ Deleted: sha256:ec9551abb42fbcc1fc97cf29fc1ab10a4231e22da5d06d6e8f562e4b88772be6
 Viene rimossa l'immagine e tutti i suoi layers che non siano in condivisione con altre immagini.
 
 Per (eventualmente) rimuovere tutte le immagini:
-```
-docker rmi -f $(docker images -q)
-```
 
+#### `docker rmi -f $(docker images -q)`
 
 #### Nota
 
