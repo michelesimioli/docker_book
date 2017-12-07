@@ -1,4 +1,4 @@
-## Firefox in Alpine
+# Firefox in Alpine
 
 Genereremo un'immagine `alpfire` basata su Alpine e contenente Firefox e Ssh.
 
@@ -95,18 +95,18 @@ Il punto di ingresso `ENTRYPOINT` è la shell preparata, che riceve come argomen
 Questo è un metodo standard per far compiere ad un container dei settaggi iniziali.
 
 Generiamo ora l'immagine:
-```
-docker build -t alpfire .
-```
+
+#### `docker build -t alpfire .`
+
 Può impiegare un po' di tempo, poichè deve installare tutte le dipendenze del software richiesto.
 
-L'immagine risultante è di 196 MB, un bel risparmio dai 398 MBquando è basata su Ubuntu. E in quest'immagine c'è anche ssh.
+L'immagine risultante è di 196 MB, un bel risparmio dai 398 MB quando è basata su Ubuntu. E in quest'immagine c'è anche ssh.
 
-### Lancio di `alpfire`
+## Lancio di `alpfire`
 
 Vogliamo alla fine accedere al container _alpfire_ tramite ssh, senza dare la password, basandoci su chiavi crittografiche.
 
-#### Generazione di Chiavi
+### Generazione di Chiavi
 
 Sulla macchina _client_, non sullo host di Docker, se già non le abbiamo, prepariamo le chiavi `rsa`:
 ```
@@ -124,7 +124,7 @@ Ora occorre copiare la chiave pubblica sulla macchina host, dandole un nome dist
 scp ~/.ssh/id_rsa.pub mich@192.168.0.10:ex/mich.pub
 ```
 
-#### Container Dati per le Chiavi
+### Container Dati per le Chiavi
 
 Viene creato un container docker per tenere le chiavi autorizzate:
 ```
@@ -135,7 +135,7 @@ docker cp mich.pub ssh-container:/root/.ssh/authorized_keys
 ```
 Il primo comando crea un'immagine `dummy` di 0 bytes.
 Lo fa generando un archivio `tar` ed inserendogli i dati da `/dev/null`, cioè un archivio tar vuoto (ma con la struttura giusta).
-Dopo la pipe il comando `docker import` legge l'immagine da standard input, `-`, e la chiama `dummi`. Il comando `import` si aspetta sempre immagini tar.
+Dopo la pipe il comando `docker import` legge l'immagine da standard input, `-`, e la chiama `dummy`. Il comando `import` si aspetta sempre immagini tar.
 `dummy` è ora un'immagine valida, e la possiamo vedere con `docker images`.
 
 Il secondo comando l'abbiamo (quasi) già visto: crea un volume legato a `/home/mich/.ssh` col nome `ddh-comtainer` basato sull'immagine `dummy`.
@@ -144,15 +144,15 @@ L'interessante è l'argomento `/bin/true` alla fine. Non avevamo visto alcun arg
 Ogni immagine deve avere un _entry point_, un comando che deve eseguire il contenitore attivato. Se non ce l'ha, allora occorre specificarlo sulla linea di run. `dummy` non ha alcun comando, quindi gli passiamo `/bin/true` che ha sempre successo.
 Infatti `dummy` è vuoto, non ha nemmeno `/bin/true`. Ma non importa, tanto non è un contenitore che gira, solo che tiene dati. Se anche gli passiamo il comando `zot` va bene lo stesso, tanto per soddisfare la sintassi.
 
-Il terzo comando palesemente copia la nostra chiave nel conainer che tiene le chiavi. Notare la sintassi, che sembra quella di NFS: la destinazione ha la struttura `contenitore:file`.
+Il terzo comando palesemente copia la nostra chiave nel container che tiene le chiavi. Notare la sintassi, che sembra quella di NFS: la destinazione ha la struttura `contenitore:file`.
 Questo tipo di comando si può fare con qualsiasi contenitore, e anche il comando inverso, da contenitore a file system.
 
-###Lancio del Contenitore e Collegamento
+## Lancio del Contenitore e Collegamento
 
 Lanciare con:
-```
-docker run -p 4848:22 --name alpine-firefox --hostname alpine-firefox --volumes-from ssh-container -d alpfire
-```
+
+#### `docker run -p 4848:22 --name alpine-firefox --hostname alpine-firefox --volumes-from ssh-container -d alpfire`
+
 La nostra macchina _host_, in questo esempio, ha l'indirizzo IP 192.168.0.10.
 
 Collegarsi dalla macchina _client_ con:
@@ -163,3 +163,4 @@ ssh -i ~/.ssh/id_rsa -p 4848 -X root@192.168.0.10 firefox
 Si apre una finestra con Firefox.
 
 Occorre notare che il trasferimento dati su canale SSH è molto più lento che col protocollo VNC, anche se molto più sicuro.
+

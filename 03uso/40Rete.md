@@ -92,4 +92,4 @@ Test del server web:
 ```
 Hello World from Go in minimal Docker container
 ```
-Funziona. Non è possibile però collegarsi da altri computer che no siano quello ospitante.
+Funziona. Non è possibile però collegarsi da altri computer che non siano quello ospitante.

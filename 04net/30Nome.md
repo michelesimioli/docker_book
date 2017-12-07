@@ -1,4 +1,4 @@
-## Reti con Nome
+# Reti con Nome
 
 ##### `docker network create net1`
 
@@ -7,8 +7,9 @@ Crea una rete di nome `net1`.
 ![namednet](../gitbook/images/namednet.png)
 
 Una rete con nome è simile a un container: Si può visualizzarne le proprietà:
-```
-docker network inspect net1 
+
+#### `docker network inspect net1`
+``` 
 [
     {
         "Name": "net1",
@@ -35,14 +36,23 @@ docker network inspect net1
     }
 ]
 ```
-E' in formato JSON.
+E' in formato **JSON**.
 
+Creaiamo un contenitore _alpine_ chiamato _one_ che sia connesso alla rete `net1`.
 
 ##### `docker run -ti --net=net1 --name one alpine sh`
+
+Uscire senza terminare il contenitore:
+
 ```
 Ctrl-P Ctrl-Q
 ```
+
+Creaiamo un secondo contenitore chiamato _two_ connesso alla stessa rete `net1`:
+
 ##### `docker run -ti --net=net1 --name two alpine sh`
+
+Dal contenitore _two_ pingiamo _one_ per nome:
 ```
 / # ping one
 PING one (172.18.0.2): 56 data bytes
@@ -62,29 +72,27 @@ Il nome di un container (hostname) è:
 * quello di fantasia assegnato di default
 * lo ID del container
 
-### Agganciare una Rete
+## Agganciare una Rete
 
 Un contenitore può essere collegato a più di una rete:
 
-```
-docker network create net2
+#### `docker network create net2`
 
-docker network connect net2 two
-```
+#### `docker network connect net2 two`
 
 Collega il contenitore two alla rete net2. Si può tastare con:
-```
-docker attach two
 
+#### `docker attach two`
+```
 / # ifconfig
 ```
 e vengono visualizzate le interfacce eth0 ed eth1.
 
-### Rimuovere una Rete
+## Rimuovere una Rete
 
 Il comando è semplicemente:
 
-##### `docker network rm nomerete`
+##### `docker network rm` _nomerete_
 
 Se si tenta di rimuovere una rete con container attivi si ottiene un messaggio d'errore.
 
@@ -99,7 +107,7 @@ Se si ricrea la rete il contenitore riparte, anche qualora la rete avesse ora un
 In una configurazione con molte reti e contenitori interconnessi è facile compiere pasticci dipendenti dall'ordine di creazione e collegamento.
 E' meglio scrivere una procedura shell di configurazione e partire sempre da una situazione iniziale pulita.
 
-Le tre reti predefinite non si possono rimuovere.
+Le tre reti predefinite (_bridge_, _host_ e _none) non si possono rimuovere.
 
 Un _one-liner_ shell per rimuovere tutte le reti può essere:
 ```

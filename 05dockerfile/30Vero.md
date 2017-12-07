@@ -1,4 +1,4 @@
-## Dockerfiles in Rete
+# Dockerfiles in Rete
 
 In un mondo realistico moderno:
 * il sofware è disponibile in formato Open Source
@@ -70,6 +70,8 @@ curl 172.17.0.2
 
 Funziona, con la pagina di default.
 
+---
+
 **Osservazione**
 
 Naturalmente anzichè compilarlo noi da sorgenti tramite Dockerfile, potevamo solamente fidarci dell'immagine già compilata presente su Docker Hub e digitare:
@@ -78,7 +80,9 @@ docker pull nginx
 ```
 L'immagine risultante è più grande, 106 Mb, poichè questa versione contiene anche il supporto a Perl.
 
-### Serve di Pagine Statiche con Nginx
+---
+
+## Server di Pagine Statiche con Nginx
 
 Ora rimane il problema di passare pagine statiche al contenitore.
 
@@ -99,12 +103,16 @@ Creiamoci dentro il file `index.html`:
 ```
 
 Ora lanciamo il container, con opportuno _port publishing_ e _volume mapping_:
-```
-docker run --name web_server -p 8080:80 -v ~/ex/static:/usr/share/nginx/html:ro -d nginx
-```
+
+#### `docker run --name web_server -p 8080:80 -v ~/ex/static:/usr/share/nginx/html:ro -d nginx`
+
+Il modificatore `:ro` alla directory lato contenitore significa **read only**: il contenitore non può modificare tale directory. Solo noi possiamo farlo dalla directory lato sistema ospitante.
 
 Se l'indirizzo IP della macchina host è `192.168.0.10`, puntiamo il nostro browser a `http://192.168.0.10:8080/` e dovremmo vedere la nostra pagina di indice.
 
 Qualsiasi cambiamento effettuato sulla directory locale `~/ex/static` è immediatamente riflesso dal web server.
 
+Quando il contenitore è fermato e rimosso, le nostre pagine statiche continuano ad esistere.
+
+Quando viene creato un nuovo contenitore con lo stesso comando, vede immediatamente le pagine statiche dalla nostra directory.
 

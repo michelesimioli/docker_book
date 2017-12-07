@@ -1,4 +1,4 @@
-## Gestione della Rete
+# Gestione della Rete
 
 Listare le reti:
 ```
@@ -10,7 +10,7 @@ NETWORK ID          NAME                DRIVER              SCOPE
 c27ab4d47bc2        none                null                local
 ```
 
-### Il driver `bridge`
+## Il driver `bridge`
 
 E' il default: genera una rete interna con un o stack privato e un indirizzo privato per il container.
 
@@ -42,9 +42,9 @@ lo        Link encap:Local Loopback
 
 Viene inoltre modificata la tabella `nat` di `iptables` con il `MASQUERADING` della rete interne generata. Questo permette al container di accedere ad Internet tramite la macchina host.
 
+Verifichiamo:
+#### `sudo iptables -t nat -L -n`
 ```
-sudo iptables -t nat -L -n
-
 Chain PREROUTING (policy ACCEPT)
 target     prot opt source               destination         
 DOCKER     all  --  0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
@@ -65,7 +65,7 @@ target     prot opt source               destination
 RETURN     all  --  0.0.0.0/0            0.0.0.0/0
 ```
 
-### Il driver `host`
+## Il driver `host`
 
 Il contenitore condivide lo stack di rete dello host. Tutte le interfacce di rete dello host sono visibili anche al container.
 
@@ -100,7 +100,7 @@ wlp3s0    Link encap:Ethernet  HWaddr 80:9B:20:2E:88:90
 ```
 I programmi di rete dello host e del contenitore devono usare porte diverse. Diventa molto complicato gestire più contenitori con il driver `host`.
 
-### Il driver `none`
+## Il driver `none`
 
 Il contenitore non ha indirizzi esterni. Lo stack di rete è limitato all'interfaccia di loopback.
 
@@ -121,7 +121,7 @@ lo        Link encap:Local Loopback
 / # 
 ```
 
-### Due containers sulla rete di default
+## Due containers sulla rete di default
 
 ![intnet](../gitbook/images/intnet.png)
 
@@ -155,4 +155,4 @@ round-trip min/avg/max = 0.159/0.177/0.197 ms
 ping: bad address 'one'
 / # 
 ```
-Ogni container vede gli altri, ma non vi è nessun servizio di risoluzione nomi-indirizzi.
+Ogni container vede gli altri, ma sulla rete di default non vi è nessun servizio di risoluzione nomi-indirizzi.

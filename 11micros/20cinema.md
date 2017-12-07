@@ -1,4 +1,4 @@
-## Docker e Go
+# Docker e Go
 
 Esempio complesso di microservizi.
 
@@ -24,17 +24,17 @@ Si basa su **Virtual Domains** e richiede che il file `/etc/hosts` venga modific
 127.0.0.1   movies.local bookings.local users.local showtimes.local
 ```
 
-### Interfacce
+## Interfacce
 
-Usa interfacce HTTP REST.
+Usa interfacce **HTTP REST**.
 
-#### User Service
+### User Service
 
 * GET - http://users.local/users - lista gli utenti
 * POST - http://users.local/users - crea un utente
 * DELETE - http://users.local/users/{id} - rimuove un utente
 
-#### Movie Service
+### Movie Service
 
 Ogni film ha il titolo, una valutazione da 1 a 10, il regista e altre informazioni.
 
@@ -43,19 +43,19 @@ Ogni film ha il titolo, una valutazione da 1 a 10, il regista e altre informazio
 * GET - http://movies.local/movies/{id} - cerca un film tramite `id`
 * DELETE - http://movies.local/movies/{id} - rimuove un film tramite `id`
 
-#### Showtime Service
+### Showtime Service
 
 * GET - http://showtimes.local/showtimes - lista gli showtimes
 * POST - http://showtimes.local/showtimes - crea uno showtime
 * GET - http://showtimes.local/showtimes/{id} - cerca uno showtime tramite `id`
 * DELETE - http://showtimes.local/showtimes/{id} - rimuove uno showtime tramite `id`
 
-#### Booking Service
+### Booking Service
 
 * GET - http://bookings.local/bookings - mostra tuttele prenotazioni
 * POST - http://bookings.local/bookings - crea una prenotazione
 
-### Gestione dell'applicativo
+## Gestione dell'applicativo
 
 Generare e lanciare i servizi:
 ```
@@ -71,7 +71,7 @@ docker-compose build
 ```
 
 
-### Il file di descrizione
+## Il file di descrizione `docker-compose`
 
 _(docker-compose.yml)_
 

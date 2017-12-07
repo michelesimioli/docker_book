@@ -1,10 +1,10 @@
-## Docker e X Window
+# Docker e X Window
 
 Genereremo un'immagine contenente il browser _Firefox_, che si collegherà al nostro ambiente grafico X Window System. Questo non è così semplice come il collegamento a terminale.
 
 Non si può lanciare Firefox se non si ha X Window, o nativo, o tramite VNC.
 
-### Generazione Immagine per Firefox
+## Generazione Immagine per Firefox
 
 Creare una directory opportuna e il _Dockerfile_:
 ```
@@ -19,12 +19,12 @@ RUN apt-get update && apt-get install -y firefox
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
-mkdir -p /home/developer && \
-echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
-echo "developer:x:${uid}:" >> /etc/group && \
-echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer && \
-chmod 0440 /etc/sudoers.d/developer && \
-chown ${uid}:${gid} -R /home/developer
+    mkdir -p /home/developer && \
+    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
+    echo "developer:x:${uid}:" >> /etc/group && \
+    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer && \
+    chmod 0440 /etc/sudoers.d/developer && \
+    chown ${uid}:${gid} -R /home/developer
 
 USER developer
 ENV HOME /home/developer
@@ -37,13 +37,11 @@ docker build -t firefox .
 ```
 Può impiegare un po' di tempo. La dimensione finale è di 398 MB.
 
-
-### Firefox da Macchina Host
+## Firefox da Macchina Host
 
 Lanciare il comando:
-```
-docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix firefox > /dev/null 2>&1
-```
+
+#### `docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix firefox > /dev/null 2>&1`
 
 Occorre settare nel container la variabile d'ambiente DISPLAY. Questo è vero per tutti i programmi client X Window.
 
@@ -54,9 +52,9 @@ Il volume condiviso è il socket di comunicazione tra la macchina host e il cont
 Firefox se lanciato in _foreground_ può generare messaggi di warning a terminale; se lanciato in _background_ viene bloccato dal Job Control e va in modalità _Stopped_ quando prova a inviare i messaggi di warning.
 La soluzione è la ridirezione di _stdin_ e _stderr_ a `/dev/null`.
 
-### Firefox da VNC
+## Firefox da VNC
 
-#### Installazione di VNC su Ubuntu 16.04
+### Installazione di VNC su Ubuntu 16.04
 
 Installare i pacchetti:
 ```
@@ -89,9 +87,9 @@ Nel nostro esempio l'indirizzo della macchina server VNC, la stessa dello _host_
 
 VNC apre la porta 5901 per il Display 1, 5902 per il 2, ecc.
 
-#### Installazione di un Client VNC e Collegamento a Firefox
+### Installazione di un Client VNC e Collegamento a Firefox
 
-Vi sono alcuni client VNC. Useremo Vinagre.
+Vi sono alcuni client VNC. Useremo _Vinagre_.
 ```
 sudo apt install vinagre
 ```
@@ -108,9 +106,8 @@ Come prima cosa bisogna disabilitare il controllo accesso di X Window col comand
 xhost +
 ```
 Poi lanciamo il container `firefox` nel seguente modo:
-```
-docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/X1:/tmp/.X11-unix/X1 firefox > /dev/null 2>&1
-```
+
+#### `docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/X1:/tmp/.X11-unix/X1 firefox > /dev/null 2>&1`
 
 L'esempio presuppone che il VNC Server abbia aperto il display `:1`.
 

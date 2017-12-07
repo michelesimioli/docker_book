@@ -1,9 +1,9 @@
-## Esempio di Docker Swarm
+# Esempio di Docker Swarm
 
 Creare il nodo Master `master1`:
-```
-$ docker-machine create --driver virtualbox manager1
 
+#### `docker-machine create --driver virtualbox manager1`
+```
 Running pre-create checks...
 (manager1) Default Boot2Docker ISO is out-of-date, downloading the latest release...
 (manager1) Latest release for github.com/boot2docker/boot2docker is v17.06.0-ce
@@ -31,9 +31,9 @@ To see how to connect your Docker Client to the Docker Engine running on this vi
 Se l'immagine ISO Boot2Docker è mancante o obsoleta, l'ultima viene automaticamente scaricata dalla rete.
 
 Si può verificare l'ambiente generato con:
-```
-$ docker-machine env manager1
 
+#### `docker-machine env manager1`
+```
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
 export DOCKER_CERT_PATH="/home/mich/.docker/machine/machines/manager1"
@@ -43,19 +43,19 @@ export DOCKER_MACHINE_NAME="manager1"
 ```
 
 Configurare la shell per riconoscere questo ambiente con:
-```
-$ eval $(docker-machine env manager1)
-```
+
+#### `eval $(docker-machine env manager1)`
+
 
 Creare cinque nodi _worker_ chiamati `worker1` ... `worker5`:
-```
-docker-machine create --driver virtualbox worker1
+
+#### `docker-machine create --driver virtualbox worker1`
 ...
-```
 
 Controllare lo stato dei nodi:
+
+#### `docker-machine ls`
 ```
-$ docker-machine ls
 NAME       ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS
 manager1   *        virtualbox   Running   tcp://192.168.99.100:2376           v17.06.0-ce   
 worker1    -        virtualbox   Running   tcp://192.168.99.101:2376           v17.06.0-ce   
@@ -66,14 +66,16 @@ worker5    -        virtualbox   Running   tcp://192.168.99.105:2376           v
 ```
 
 Verificare l'indirizzo IP di _manager1_:
+
+#### `docker-machine ip manager1`
 ```
-$ docker-machine ip manager1
 192.168.99.100
 ```
 
 Verificare l'accesso SSH a _manager1_:
+
+#### `docker-machine ssh manager1`
 ```
-$ docker-machine ssh manager1
                         ##         .
                   ## ## ##        ==
                ## ## ## ## ##    ===
@@ -95,9 +97,9 @@ In modo simile si può verificare l'accesso ai nodi worker.
 Notare che l'autorizzazione è con chiavi preinstallate: non vi è bisogno di alcuna password.
 
 Collegarsi con SSH a `manager1` e dare il comando di inizializzazione dello swarm:
-```
-$ docker swarm init --advertise-addr 192.168.99.100
 
+#### `docker swarm init --advertise-addr 192.168.99.100`
+```
 Swarm initialized: current node (ena9zlcgib0l9a0wxuhffoykk) is now a manager.
 
 To add a worker to this swarm, run the following command:
@@ -106,6 +108,7 @@ To add a worker to this swarm, run the following command:
 
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 ```
+
 Il manager è già inizializzato. Le informazioni delle ultime due linee indicano come fare ad aggiungere un _altro_ manager.
 
 Collegarsi a turno con ogni worker e dare il comando indicato nelle istruzioni, per esempio:
@@ -117,8 +120,9 @@ This node joined a swarm as a worker.
 ```
 
 Per verificare lo stato dello _swarm_ dare il comando su `master1`:
+
+#### `docker node ls`
 ```
-docker node ls
 ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
 55spwzqadhn909v52xahrm4v8     worker5             Ready               Active              
 cla9af3pvg7totmbpetfdjnc1     worker3             Ready               Active              

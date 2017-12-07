@@ -1,4 +1,4 @@
-## Sicurezza delle Immagini
+# Sicurezza delle Immagini
 
 Un'immagine malefica ha completo accesso alla macchina host.
 
@@ -16,7 +16,7 @@ Altri repositories privati devono essere associati a ditte di comprovata fiducia
 
 Lo scarico, invece, di applicativi finali precompilati o anche immagini di base, da repositories pubblici è **estremamente pericoloso**.
 
-#### Organizzazione Pratica
+### Organizzazione Pratica
 
 * Scaricare da Docker Hub le immagini di base necessarie
 * Scaricare da GitHub, SourceForge o altri circuiti di distribuzione, gli applicativi in formato Open Source
@@ -41,7 +41,7 @@ I servizi di SCA sono di solito forniti da ditte specializzate, previa sottoscri
 * TwistLock - `https://www.twistlock.com/`
 * Layered Insight - `http://layeredinsight.com/`
 
-#### Strumenti Open Source
+### Strumenti Open Source
 
 * Banyan Collector - `https://github.com/banyanops/collector`
 * Mobile Security Framework - `https://github.com/MobSF/Mobile-Security-Framework-MobSF/wiki/7.-Docker-Container-for-MobSF-Static-Analysis`
@@ -72,7 +72,7 @@ Per scaricare un'immagine non firmata, quando il trust è abilitato, usare il co
 docker pull --disable-content-trust immagine
 ```
 
-Il Docker Content Trust non protegge da attacchi **Man-In-The-Middle** (MITM) o di Ingegneria Sociale.
+Il Docker Content Trust non protegge da attacchi **Man-In-The-Middle** (MITM) o di _Ingegneria Sociale_.
 
 Per configurare un repository locale con _Docker Content Trust_ occorre installare un **Notary Server**.
 

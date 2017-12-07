@@ -1,4 +1,4 @@
-### Docker Machine
+# Docker Machine
 
 Permette di compiere le seguenti operazioni:
 * installazione di Docker su una macchina Windows o Mac, in locale
@@ -6,7 +6,7 @@ Permette di compiere le seguenti operazioni:
 
 Docker Machine è disponibile anche per Linux, ma dato che controlla sistemi virtuali Linux, abbiamo la situazione di presenza di macchine virtuali, che è quello che Docker preferisce evitare. E' raro che si installi Docker Machine su Linux.
 
-#### Differenze tra **Docker Engine** e **Docker Machine**
+## Differenze tra **Docker Engine** e **Docker Machine**
 
 Docker Engine è il server Docker, che esegue i comandi del client e fornisce una API RESTful.
 
@@ -16,7 +16,7 @@ Docker Machine è uno strumento per creare e controllare istanze Docker Engine s
 
 ![Docker Machine](../gitbook/images/docker-machine-arch.png)
 
-### Installazione di Docker Machine su Linux
+## Installazione di Docker Machine su Linux
 
 ```
 curl -L https://github.com/docker/machine/releases/download/v0.10.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine &&
@@ -37,7 +37,7 @@ Ed è opportuno modificare la variabile d'ambiente **path** di Windows per veder
 **Incidentalmente**: Git Bash è uno strumento fortemente raccomandato per chi lavora in Windows. Fornisce una shell Bash interattive e programmabile, l'editor `vi`, molte utilities Linux e i comandi `Git`.
 E' reperibile a: `https://git-scm.com/download/win`.
 
-### Installazione di Docker Machine da immagine precompilata
+## Installazione di Docker Machine da immagine precompilata
 
 Gli utenti Windows o Mac possono preferire questa soluzione e trovarla su:
 `https://github.com/docker/machine/releases/`.

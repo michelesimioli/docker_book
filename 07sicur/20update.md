@@ -1,11 +1,11 @@
-## Updates
+# Updates
 
 Idealmente:
 * le immagini di base sono derivate da repositories ufficiali di fiducia
 * le immagini dipendenti, che richiedono quelle base, hanno un `dockerfile` di specifica
 * tutte le immagini derivate sono conservate su un repository locale
 
-### Passi per l'Update
+## Passi per l'Update
 
 * identificare le immagini che richiedono update, sia dipendenti che di base
 * compiere l'update di ogni immagine base e compiere il push al repository
@@ -24,7 +24,7 @@ Operare su una macchina Linux in cui sia stato installato il **Logical Volume Ma
 
 ---
 
-### Lista delle Immagini
+## Lista delle Immagini
 
 ```
 docker inspect -f "{{.Image}}" $(docker ps -q)
@@ -59,7 +59,7 @@ Con un minimo di _templating_ o anche di _programmazione shell_ si può aggiunge
 
 ---
 
-### Update del Docker Engine
+## Update del Docker Engine
 
 Occorre prevedere downtime per l'upgrade dell'intero sistema Docker, poichè:
 * vengono introdotte nuove features
@@ -73,8 +73,7 @@ Al veloce ritmo di cambiamento dell'ecosistema Docker è opportuno prevedere la 
 Le considerazioni sono molto simili a quelle dell'upgrade di un Kernel Linux. Occorre:
 * (compiere uno snapshot e/o un backup)
 * fermare tutti i contenitori, accertandosi di non perdere i volumi di dati (**spin down**)
-* compiere l'upgrade delDocker Engine
+* compiere l'upgrade del Docker Engine
 * ristartare i contenitori (**spin up**)
 
 Può essere una buona idea avere una replica completa dello host e di tutti i suoi contenitori prima dell'upgrade.
-

@@ -1,4 +1,4 @@
-## Craezione di un Machine in Linux
+# Creazione di una Machine in Linux
 
 ![Machine](../gitbook/images/machine.png)
 
@@ -91,7 +91,7 @@ hello world
 
 Rimuovere il contenitore creato con `docker rm ID`.
 
-### Comandi alla Docker Machine
+## Comandi alla Docker Machine
 
 Si inviano comandi di controllo con la sintassi:
 ```
@@ -115,3 +115,4 @@ I comandi che si comportano in questo modo sono:
 * `docker-machine stop`
 * `docker-machine upgrade`
 * `docker-machine url`
+

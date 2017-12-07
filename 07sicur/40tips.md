@@ -1,6 +1,6 @@
-## Consigli
+# Consigli di Tuning e Sicurezza
 
-### User
+## User
 
 Nel `dockerfile` settare sempre uno USER:
 ```
@@ -28,7 +28,7 @@ sudo apt install gosu
 E' una buona idea anche per i comandi Linux in generale.
 Cf. `https://github.com/tianon/gosu`
 
-### Limitare il Networking
+## Limitare il Networking
 
 Un container dovrebbe aprire soltanto le porte che gli servono.
 Didefault più containers sulla stessa rete possono vedersi anche se le porte non sono state ufficialmente aperte od esposte.
@@ -58,7 +58,7 @@ Meglio settarlo nel file di configurazione `/etc/default/docker` alla voce `DOCK
 DOCKER_OPTS="--iptables=true --icc=false"
 ```
 
-### SUID e SGID
+## SUID e SGID
 
 E' molto probabile che non vi sia bisogno nel nostro applicativo dei programmi con il bit SUID o SGID settato. 
 In tal caso può essere una buona idea disabilitarli.
@@ -69,7 +69,7 @@ FROM debian:wheezy
 RUN find / -perm +6000 -type f -exec chmod a-s {} \; || true
 ```
 
-### Limitare la Memoria
+## Limitare la Memoria
 
 Con l'opzione `-m` per la memoria e `--memory-swap` per l'area di swap.
 Non tutti i kernel supportano la limitazione di swap.
@@ -113,7 +113,7 @@ Ripulire tutti i container attivi:
 docker ps -a| grep -v CONTAINER | awk '{print $1}' | xargs docker rm
 ```
 
-### Limitare la CPU
+## Limitare la CPU
 
 Con l'opzione `-c`. Il peso di default è 1024.
 
@@ -127,7 +127,7 @@ $ docker run -d --name load4 -c 512 amouat/stress
 $ docker stats $(docker inspect -f {{.Name}} $(docker ps -q))
 ```
 
-### Limitare i Restart
+## Limitare i Restart
 
 Un container può avere problemi e compiere troppi restart.
 Limitarli con, per esempio:
@@ -140,7 +140,7 @@ Per vedere il conto di restart corrente:
 $ docker inspect -f "{{ .RestartCount }}" $(docker ps -lq)
 ```
 
-### Limitare i Filesystem
+## Limitare i Filesystem
 
 Con l'opzione `--read-only`. Esempio:
 
@@ -155,7 +155,7 @@ $ docker run -v $(pwd):/pwd:ro debian touch /pwd/x
 touch: cannot touch '/pwd/x': Read-only file system
 ```
 
-### Limitare i Capabilities
+## Limitare i Capabilities
 
 Il kernel Linux ha una serie di **Capabilities** che si possono settare o togliere. Il contenitore di default ne ha un sottoinsieme.
 

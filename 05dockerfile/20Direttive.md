@@ -1,8 +1,8 @@
-## Direttive per Dockerfile
+# Direttive per Dockerfile
 
-### Dockerfile più complessa: `nginx`
+## Dockerfile più complessa: `nginx`
 
-I dockerfile possono presto diventare complessi:
+I dockerfile possono presto diventare complessi. Per esempio un `Dockerfile` per la costruzione di `nginx` può essere:
 ```
 FROM ubuntu
 
@@ -28,7 +28,7 @@ EXPOSE 80
 EXPOSE 443
 ```
 
-#### Direttive del Dockerfile
+### Direttive del Dockerfile
 
 Comandi:
 * `FROM` - specifica l'Immagine di Base da cui si sta costruendo. Deve essere la prima istruzione del file.

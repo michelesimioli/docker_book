@@ -1,10 +1,11 @@
-## Compose con Due Containers
+# Compose con Due Containers
 
 ```
 mkdir -p ~/ex/compose/wp1
 cd ~/ex/compose/wp1
 vi docker-compose.yml
 ```
+
 ```yml
 version: '2'
 

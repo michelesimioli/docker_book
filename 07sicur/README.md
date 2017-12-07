@@ -27,7 +27,7 @@ Vulnerabilità di cui preoccuparsi:
     * risiedere in file di configurazione o `dockerfile` insufficientemente protetti
     * essere trasmessi sulla rete in chiaro
 
-### Namespaces
+## Namespaces
 
 Un contenitore ha al suo interno un numero di `namespaces` privati e separatei da quello del kernel host.
 

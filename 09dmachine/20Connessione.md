@@ -1,4 +1,4 @@
-## Connessione Docker Machine
+# Connessione Docker Machine
 
 Intendiamo connetterci con `docker-machine` ad uno host remoto in cui Docker Engine è già installato.
 
@@ -8,7 +8,7 @@ In questo esercizio:
 * vi è l'utente equivalente `mich` sullo host remoto anche se ha una password diversa
 * la machine remota si chiamerà `remote-docker-host`
 
-#### Passo 1 - Disabilitare Password di `sudo`
+### Passo 1 - Disabilitare Password di `sudo`
 
 E' indispensabile che l'utente della macchina **host** riesca ad eseguire comandi `sudo` senza che gli venga chiesta la password.
 
@@ -20,7 +20,7 @@ Questo introduce un certo livello di rischio. Il file si può ripristinare alla 
 
 Per attivare la nuova configurazione occorre compiere un relogin.
 
-#### Passo 2 - Chiavi SSH
+### Passo 2 - Chiavi SSH
 
 Se non l'abbiamo già occorre generare una coppia di chiavi con:
 ```
@@ -45,7 +45,7 @@ Now try logging into the machine, with:   "ssh 'mich@192.168.0.10'"
 and check to make sure that only the key(s) you wanted were added.
 ```
 
-#### Passo 3 - Creazione Machine Remota
+### Passo 3 - Creazione Machine Remota
 
 Col comando:
 ```
