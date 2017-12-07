@@ -77,7 +77,9 @@ Attenzione: questo è un comando a basso livello e non risolve eventuali dipende
 
 E' di gran lunga preferibile l'installazione da Repository.
 
-### Aggiunta utente autorizzato
+---
+
+## Aggiunta utente autorizzato
 
 Per poter comunicare col server docker, cioè poter dare quasi i comandi, è necessario che un utente appartenga al gruppo `docker`.
 
@@ -93,13 +95,13 @@ E' necessario un relogin di _mich_ per appartenere a tale gruppo.
 
 ---
 
-# Attenzione
+## Attenzione
 
 Far appartenere al gruppo `docker` un utente non amministratore è un **GROSSO** baco di sicurezza, poichè permetta a tale utente, con l'aiuto di Docker, una **scalata di privilegi**.
 
 ---
 
-### Verifica versione
+## Verifica versione
 
 Il comando:
 ##### docker version
@@ -124,7 +126,7 @@ Server:
  
  da un rapporto sulla versione sia del client che del server, e implica che il server è attivo.
 
- ### Ulteriore Test
+ ## Ulteriore Test
 
  Viene fornito un container di default per il testing. Dare il comando:
 ```
@@ -169,16 +171,18 @@ Identificare lo ID del container - il grosso numero esadecimale `CONTAINER_ID` a
 docker rm CONTAINER_ID
 ```
 
+---
+
 ## Gestione del Server
 
 Dipende dalla variante di Linux usata.
 
-Su sistemi basati su init/upstart (RedHat/Centos 6, Ubuntu 14.04 LTS):
+Su sistemi basati su **init/upstart** (RedHat/Centos 6, Ubuntu 14.04 LTS):
 ```
 sudo service docker status|start|stop|restart
 ```
 
-Su sistemi basati su systemctl (RedHat/CentOS 7, Ubuntu 16.04 LTS:
+Su sistemi basati su **systemctl** (RedHat/CentOS 7, Ubuntu 16.04 LTS:
 ```
 sudo systemctl status|start|stop|restart docker
 ```
@@ -190,7 +194,9 @@ Per decidere se il servizio docker parte/non parte al prossimo boot:
 sudo systemctl enable|disable docker
 ```
 
-### Upgrade di Docker
+---
+
+## Upgrade di Docker
 
 Per l'upgrade all'ultima versione basta riaggiornare la lista dei pacchetti dai repositories, poi semplicemente installare. Non c'è più bisogno di preoccuparsi della chiave GPG.
 
@@ -203,7 +209,9 @@ Lo upgrade non tocca le immagini esistenti o altre configurazioni.
 
 Prima dell'upgrade assicurarsi che tutti i contenitori siano disattivati.
 
-### Rimozione di Docker
+---
+
+## Rimozione di Docker
 
 Se Docker è già installato, prima di installare la versione nuova occorre rimuovere quella vecchia.
 
@@ -218,3 +226,21 @@ Rimozione delle immagini e contenitori:
 ```
 sudo rm -rf /var/lib/docker
 ```
+
+---
+
+## Migrazione di Docker
+
+Per passare in modo indolore alla versione 1.10 e superiori è messo a disposizione il **tool di migrazione** disponibile a `https://github.com/docker/v1.10-migrator/releases`
+
+Questo è un eseguibile binario Linux che viene lanciato direttamente da sistema operativo.
+
+E' anche disponibile un'immagine del _tool di migrazione_, che può venir lanciata come contenitore Docker:
+```
+$ docker run --rm -v /var/lib/docker:/var/lib/docker docker/v1.10-migrator
+```
+
+Questo suppone che le immagini già presenti e da migrare siano nella directory standard `/var/lib/docker`. Se sono in un altro percorso sostituire l'elemento nel comando _prima_ dei due punti.
+
+Se il driver di storaggio è **devicemapper** (p.es. _Logical Volume Manager_), aggiungere anche l'opzione `--privileged`.
+

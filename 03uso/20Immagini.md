@@ -1,6 +1,6 @@
-## Gestione Immagini
+# Gestione Immagini
 
-### Registry
+## Registry
 
 Un Registry è una URL, tipicamente con protocollo `https`, alla quale docker si collega per scaricare immagini, con APi definite.
 Il registry di default è: `https://registry,hub,docker.com/`, o `https//hub.docker.com/`, detto Docker Hub.
@@ -19,7 +19,7 @@ E' anche possibile configurare e gestire un proprio registry:
     * usare solo la versione 2 con docker 1.6+
 * scaricando un'immagine docker (`docker pull registry`) e leggendo il manuale (https://docs.docker.com/registry/) per una corretta gestione
 
-### Repository
+## Repository
 
 E' una collezione di immagini all'interno di un registry, tutte della stessa tipologia, ma con tag (versioni) diversi.
 
@@ -67,7 +67,7 @@ docker pull mysql/mysql-server`
 ```
 Solitamente le immagini supportate ufficialmente dal Docker Hub sono nomi semplici.
 
-#### Tag di versione
+### Tag di versione
 
 Ogni immagine mantenuta nella libreria delle immagini di Docker Hub è corredata di un tag di versione. Se non viene specificato quale tag vogliamo, il default è `latest`.
 
@@ -130,7 +130,7 @@ latest
 edge
 ```
 
-#### Layers
+### Layers
 
 Un'immagine può essere costituita da più **strati** (_layers_). Finora alpine era costituita da uno strato solo, ma per esempio Ubuntu è costituita da più strati.
 
@@ -175,14 +175,16 @@ Per avere un'idea degli strati di un'immagine, in formato JSON, e di tutte le al
 ```
 I layers possono essere condivisi in più immagini. Se si scarica un'altra immagine, con un tag diverso, che condivide alcuni layers con un'immagine già installata, vengono scaricati solo i layers mancaanti.
 
-### Pull di tutte le immagini di un Repository
+## Pull di tutte le immagini di un Repository
 
 Il comando è:
 ##### `docker pull -a immagine`
 
+**Attenzione**
+
 Può richiedere molto tempo, anche con layer condivisi, ed occupare molto spazio disco.
 
-### Digest
+## Digest
 
 Il chechsum SHA256 di un'immagine si chiama il suo Digest. Per aumentare la sicurezza si può includere nel comando di pull:
 ```
@@ -193,7 +195,7 @@ Per vedere il digest di un'immagine scaricata:
 ##### docker images --digests alpine
 
 
-### Rimozione di un'immagine
+## Rimozione di un'immagine
 
 Per rimuovere un'immagine:
 ##### `docker rmi 820010c31e66`
@@ -209,7 +211,6 @@ Per (eventualmente) rimuovere tutte le immagini:
 ```
 docker rmi -f $(docker images -q)
 ```
-
 
 
 #### Nota
