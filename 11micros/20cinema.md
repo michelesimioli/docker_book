@@ -1,4 +1,4 @@
-# Docker e Go
+# Esempio di Microservizi
 
 Esempio complesso di microservizi.
 
@@ -12,6 +12,15 @@ L'applicativo è composto da 4 microservizi, scritti in **Go**, usa un database 
 
 E' disponibile su:
 `https://github.com/mmorejon/microservices-docker-go-mongodb`
+
+Scaricare nel seguente modo:
+```
+cd ~/ex
+
+git clone https://github.com/mmorejon/microservices-docker-go-mongodb
+
+cd microservices-docker-go-mongodb
+```
 
 Richiede:
 * Docker
@@ -142,3 +151,14 @@ services:
     volumes:
 - ./backup:/backup:rw
 ```
+
+## Compilazione
+
+Occorre il compilatore **Go**, almeno in versione 1.6.
+
+Procedere nella directory `microservices-docker-go-mongodb` in cui è stato scaricato il pacchetto, e ove si trova il file `docker-compose.yml`.
+
+Lanciare il comando:
+#### `docker-compose up -d`
+
+Attendere mezzora circa.

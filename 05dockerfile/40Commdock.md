@@ -1,4 +1,4 @@
-## Commit o Dockerfile
+# Commit o Dockerfile
 
 Due modi per creare un'immagine docker:
 1. creare un `Dockerfile` e lanciare un `docker build`

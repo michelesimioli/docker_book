@@ -22,7 +22,7 @@ I servizi sono:
 
 I servizi dipendono da una precisa definizione delle **Interfacce** che, una volta progettate e implementate, sono difficilmente cambiabili.
 
-I servizi hanno le seguenti proprietà:
+I servizi sono oberati da una serie di paroloni positivi:
 * **componentizzazione**
 * **vicinanza ai problemi _business_**
 * **_prodotti_ non _progetti_**
@@ -34,3 +34,4 @@ I servizi hanno le seguenti proprietà:
 * **progettati per la tolleranza alfallimento**
 * **design evolutivo**
 
+Non tutti i programmatori moderni sono convinti della bontà del modello dei servizi in luogo di quello delle librerie.

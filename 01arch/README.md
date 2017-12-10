@@ -13,8 +13,8 @@ Il collegamento tra client e server su un'unica macchina avviene tramite un _soc
 
 ![socket](../gitbook/images/cliser.png)
 
-E' possibile anche configurare Docker per usare dei _socket Inet_, in modo da avere il client e il server su macchine diverse, ma si introducono problemi di sicurezza.
+E' possibile anche configurare Docker per usare dei _socket Inet_, in modo da avere il client e il server su macchine diverse, ma si introducono naturalmente alcuni problemi di sicurezza.
 
-La soluzione raccomandata è:
+La soluzione raccomandata in fase di primo apprendimento è:
 * client e server sulla stessa macchina
 * accesso alla macchina tramite `ssh`
